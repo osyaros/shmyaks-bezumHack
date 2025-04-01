@@ -1,0 +1,22 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    padding: 26px;
+    background-color: #292929;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+}
+.btn{
+    display: flex;
+    border-radius: 48px;
+    width: 283px;
+    background-color: #6B4EFF;
+    align-items: center;
+    justify-content: center;
+}
+.oform{
+    font-family: 'Geist', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
