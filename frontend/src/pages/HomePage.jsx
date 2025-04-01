@@ -1,6 +1,7 @@
 const HomePage = () => {
   return (
     <>
+    <img src="/image.png"/>
     </>
   );
 };

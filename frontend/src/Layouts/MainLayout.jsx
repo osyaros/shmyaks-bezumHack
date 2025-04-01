@@ -15,7 +15,7 @@ const MainLayout = () => {
           className="demo__text_h3"
         >
           <div style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
-            <h3>главная</h3>
+            <h3 onClick={() => navigate("/")}>главная</h3>
             <h3 onClick={() => navigate("/subscriptions")}>подписки</h3>
             <h3 onClick={() => navigate("/music")}>музыка</h3>
           </div>
