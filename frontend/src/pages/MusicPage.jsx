@@ -17,11 +17,11 @@ const MusicPage = () => {
   useEffect(() => {
     const fetchTracks = async () => {
       try {
-        const response = await fetch("http://172.20.10.5:8000/tracks/");
+        const response = await fetch("https://orgazm-music-app.ru/api/tracks/");
         const data = await response.json();
         const tracks = data.tracks.map(track => ({
           skin: `${track.artist} - ${track.title}`,
-          img: `https:/preview/${track.file_path.replace("downloaded_tracks/", "")}`,
+          img: `https://orgazm-music-app.ru/api/preview/${track.file_path.replace("downloaded_tracks/", "")}`,
           audio: track.url,
           file_path: track.file_path,
         }));
@@ -41,7 +41,7 @@ const MusicPage = () => {
         currentAudio.currentTime = 0;
       }
 
-      const response = await fetch(`http://172.20.10.5:8000/downloaded_tracks/${item.file_path.replace("downloaded_tracks/", "")}`);
+      const response = await fetch(`https://orgazm-music-app.ru/api/downloaded_tracks/${item.file_path.replace("downloaded_tracks/", "")}`);
       const blob = await response.blob();
       const audioURL = URL.createObjectURL(blob);
       const newAudio = new Audio(audioURL);
