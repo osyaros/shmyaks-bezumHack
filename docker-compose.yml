@@ -1,0 +1,35 @@
+version: '3.11'
+
+services:
+  frontend:
+    build: ./frontend
+    expose: [ 3000 ]
+    restart: unless-stopped
+    init: true
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+
+
+  app:
+    container_name: app
+    restart: unless-stopped
+    volumes:
+      - ./backend/src/logs:/backend/src/logs
+      - ./media:/backend/media
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
+    build:
+      context: ./app
+      dockerfile: app.dockerfile
+
+volumes:
+  caddy_data:
+  caddy_config:
+  static:
